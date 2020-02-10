@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "425616151637",
+    "firebase_url": "https://swiftoffice-swifttrace-devt.firebaseio.com",
+    "project_id": "swiftoffice-swifttrace-devt",
+    "storage_bucket": "swiftoffice-swifttrace-devt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425616151637:android:e9b27d4caae1c1dfd5f0dc",
+        "android_client_info": {
+          "package_name": "com.swiftoffice.swifttrace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425616151637-eahn9ulqeamae67gsk9a7vkjc4hqpfvb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB--ih4aySdqQTE3IwFQjdBUKCMGdKsdoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425616151637-eahn9ulqeamae67gsk9a7vkjc4hqpfvb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "425616151637-s1lfbsf68cg51765tqnmq46gvdq4brvn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.swiftoffice.swifttrace"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
