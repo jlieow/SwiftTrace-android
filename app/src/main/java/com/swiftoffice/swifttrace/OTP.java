@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class OTP extends AppCompatActivity {
 
     //Variables
     private Button button;
@@ -15,22 +15,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_otp);
 
         //Declarations
-        button = findViewById(R.id.loginButton);
+        button = findViewById(R.id.verifyButton);
 
         //Listeners
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openLogin();
+                openHomePage();
             }
         });
     }
 
-    public void openLogin() {
-        Intent intent = new Intent(this, Login.class);
+    void openHomePage() {
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
 }
