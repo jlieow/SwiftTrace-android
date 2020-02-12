@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomePage extends AppCompatActivity {
 
@@ -43,6 +47,15 @@ public class HomePage extends AppCompatActivity {
                 EnableTracing();
             }
         });
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            //Retrieve UID and user's handphone if user is logged in
+            String uid = user.getUid();
+            String uhp = user.getPhoneNumber();
+            Toast.makeText(getApplicationContext(), uid + uhp, Toast.LENGTH_LONG).show();
+        }
     }
 
     void openHealthDeclaration() {

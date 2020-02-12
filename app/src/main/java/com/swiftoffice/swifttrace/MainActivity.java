@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
     //Variables
@@ -27,10 +30,22 @@ public class MainActivity extends AppCompatActivity {
                 openLogin();
             }
         });
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            // User is signed in
+            openHomePage();
+        }
     }
 
     public void openLogin() {
         Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+    }
+
+    void openHomePage() {   //Launches Home Page
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
 }
