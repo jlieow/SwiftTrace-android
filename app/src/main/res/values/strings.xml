@@ -1,3 +1,84 @@
 <resources>
     <string name="app_name">SwiftTrace</string>
+
+
+    <!--MAIN SCREEN-->
+    <string name="supportive_innovators_accelerating_result">Supporting\nInnovators &amp; \nAccelerating\nResults.</string>
+    <string name="login">Login</string>
+
+
+    <!--LOGIN SCREEN-->
+    <string name="login_with_your_phone_number">Log In With Your Phone Number</string>
+    <string name="submit">Submit</string>
+    <string name="please_enter_your_phone_number">Please enter your phone number.</string>
+    <string name="please_enter_valid_phone_number">Please enter a valid phone number</string>
+
+
+    <!--VerifyOtpActivity SCREEN-->
+    <string name="please_enter_the_otp_you_recieved_on_your_phone_number">Please enter the OTP you recieved on your phone number</string>
+    <string name="verify">Verify</string>
+    <string name="otp">OTP</string>
+    <string name="resend_otp">Resend OTP?</string>
+    <string name="entered_code_is_not_valid">Entered code is not valid.</string>
+    <string name="please_enter_your_otp">Please enter your otp.</string>
+    <string name="please_enter_valid_otp">Please enter valid otp.</string>
+
+
+    <!--SWIFT TRACE-->
+    <string name="swift_trace">Swift Trace</string>
+    <string name="health_declaration">Health Declaration</string>
+    <string name="temperature_record">Temperature Record</string>
+    <string name="enable_tracing">Enable Tracing</string>
+
+
+    <!--INSERT TEMPERATURE-->
+    <string name="insert_temperature">Insert Temperature</string>
+    <string name="date_time">Date &amp; Time</string>
+    <string name="pick_date_time">Pick Date Time</string>
+    <string name="temerature_reading">Temperature Reading</string>
+
+
+    <!--DATE TIME PICKER-->
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+
+
+    <!--HOME DECLARATION-->
+    <string name="personal_information">Personal Information</string>
+    <string name="full_name">Full Name</string>
+    <string name="nric_fin_passport">NRIC/FIN/Passport</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="your_unit_company">Your Unit/Company</string>
+    <string name="health_history">health history</string>
+    <string name="hh1">Have you had any episode of fever/ cough/ runny nose/ sore throat/ shortness of breath within the last 14 days?</string>
+    <string name="hh2">Have you travelled to Wuhan/ Hubei Province in the last 14 days?</string>
+    <string name="hh3">In the last 14 days, have you resided with a confirmed case of Wuhan Coronavirus (2019-nCoV)?</string>
+    <string name="hh4">In the last 14 days, have you come within 2 metres of a confirmed case of Wuhan Coronavirus (2019-nCoV)?</string>
+    <string name="hh5">If you are in a group, does any of your group members have “YES” as a response to any of the above questions?</string>
+    <string name="declaration">Declaration</string>
+    <string name="declaration_text">By submitting this form, I hereby declare that I have answered the above questions truthfully and to the best of my knowledge.</string>
+    <string name="emply_field_error">All fields are mandatory</string>
+    <string name="information">Information</string>
+    <string name="contact_tracing_is_currently_being_enhanced">Contact Tracing is currently being enhanced. We will release in the next sprint.</string>
+
+
+    <!--COMMON TEXTS-->
+    <string name="dismiss">Dismiss</string>
+
+    <!--COMMON ERRORS-->
+    <string name="something_went_wrong">Somthing is wrong</string>
+    <string name="please_check_your_internet_connection">Please check your internet connection.</string>
+
+
+    <!--DIALOAG TEXTS-->
+    <string name="phone_number">Phone number</string>
+    <string name="confirm_phone_text">In this your phone number?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="alert">Alert</string>
+    <string name="confirm_health_deslaration_text">I give my consent to the RSAF to access my personal particulars for the purpose of travel and health data tracking.</string>
+    <string name="cancel">Cancel</string>
+    <string name="i_agree">I Agree</string>
+
+
 </resources>

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "425616151637-rq49dkhuqj61joon9vkqna5ul4qajqep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.swiftoffice.swifttrace",
+            "certificate_hash": "f69e72cf544d401269af84a98dc0677422e00c8a"
+          }
+        },
+        {
           "client_id": "425616151637-qfjelrqtt62f0noti5retn4fns3njcos.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

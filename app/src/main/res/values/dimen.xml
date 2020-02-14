@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--PADDING-->
+    <dimen name="padding_4">4dp</dimen>
+    <dimen name="padding_5">5dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+    <dimen name="padding_15">15dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="padding_50">50dp</dimen>
+    <dimen name="padding_100">100dp</dimen>
+
+
+    <!--MARGIN-->
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_55">55dp</dimen>
+    <dimen name="margin_60">60dp</dimen>
+    <dimen name="margin_70">70dp</dimen>
+    <dimen name="margin_80">80dp</dimen>
+    <dimen name="margin_100">100dp</dimen>
+
+
+    <!--RADIUS-->
+    <dimen name="radius_5">5dp</dimen>
+
+
+    <!--IMAGES HEIGHT AND WIDTH-->
+    <dimen name="image_height_50">50dp</dimen>
+    <dimen name="image_width_50">50dp</dimen>
+
+    <dimen name="image_height_100">100dp</dimen>
+    <dimen name="image_width_100">100dp</dimen>
+
+    <dimen name="image_height_120">120dp</dimen>
+    <dimen name="image_width_120">120dp</dimen>
+
+
+    <!--BUTTON Sizes-->
+    <dimen name="btn_width_150">150dp</dimen>
+
+
+
+    <!--VIEWS HEIGHT AND WIDTH-->
+    <dimen name="view_height_0_5">0.5dp</dimen>
+    <dimen name="view_height_1">1dp</dimen>
+
+
+    <!-- TEXT SIZES-->
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_22">22sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+
+
+    <dimen name="btn_text_size">18sp</dimen>
+
+</resources>

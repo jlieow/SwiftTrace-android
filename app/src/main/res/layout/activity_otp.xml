@@ -1,46 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OTP">
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="722dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvToolBarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Please enter the OTP you received." />
+            android:layout_gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/otpInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
+    </androidx.appcompat.widget.Toolbar>
 
-        <Button
-            android:id="@+id/verifyButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Verify" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <Button
-            android:id="@+id/resendcodeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Resend Code" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/margin_50"
+                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginRight="@dimen/margin_50"
+                android:gravity="center"
+                android:text="@string/please_enter_the_otp_you_recieved_on_your_phone_number"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_18"
+                android:textStyle="bold">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </TextView>
+
+            <EditText
+                android:id="@+id/etEnterOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_55"
+                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginRight="@dimen/margin_55"
+                android:backgroundTint="@color/colorBlack"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="6"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16" />
+
+            <TextView
+                android:id="@+id/tvTimerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_5"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_18" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVerify"
+                style="@style/MyButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_80"
+                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginRight="@dimen/margin_80"
+                android:text="@string/verify"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
