@@ -52,11 +52,14 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
         toolBar = findViewById(R.id.toolBar);
         tvToolBarTitle = findViewById(R.id.tvToolBarTitle);
 
-        //Toolbar
+        //SetToolbar
         setSupportActionBar(toolBar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_arrow);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_arrow);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
         listenters();
     }

@@ -54,8 +54,10 @@ public class TemperatureRecordActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         tempRecordList.setLayoutManager(linearLayoutManager);
 
+        //SetToolbar
+        setSupportActionBar(toolBar);
+
         if (getSupportActionBar() != null) {
-            setSupportActionBar(toolBar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_arrow);
             getSupportActionBar().setDisplayShowTitleEnabled(false);

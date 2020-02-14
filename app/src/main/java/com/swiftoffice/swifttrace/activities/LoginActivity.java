@@ -48,10 +48,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tvToolBarTitle = findViewById(R.id.tvToolBarTitle);
         etPhoneNumber = findViewById(R.id.etPhoneNumber);
 
-        //ToolBar
+        //SetToolbar
+        setSupportActionBar(toolBar);
+
         if (getSupportActionBar() != null) {
-            setSupportActionBar(toolBar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_arrow);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
 
