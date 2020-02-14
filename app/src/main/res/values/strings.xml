@@ -35,7 +35,7 @@
     <string name="insert_temperature">Insert Temperature</string>
     <string name="date_time">Date &amp; Time</string>
     <string name="pick_date_time">Pick Date Time</string>
-    <string name="temerature_reading">Temperature Reading</string>
+    <string name="temperature_reading">Temperature Reading</string>
 
 
     <!--DATE TIME PICKER-->
@@ -57,7 +57,7 @@
     <string name="hh5">If you are in a group, does any of your group members have “YES” as a response to any of the above questions?</string>
     <string name="declaration">Declaration</string>
     <string name="declaration_text">By submitting this form, I hereby declare that I have answered the above questions truthfully and to the best of my knowledge.</string>
-    <string name="emply_field_error">All fields are mandatory</string>
+    <string name="empty_field_error">All fields are mandatory</string>
     <string name="information">Information</string>
     <string name="contact_tracing_is_currently_being_enhanced">Contact Tracing is currently being enhanced. We will release in the next sprint.</string>
 
@@ -76,7 +76,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="alert">Alert</string>
-    <string name="confirm_health_deslaration_text">I give my consent to the RSAF to access my personal particulars for the purpose of travel and health data tracking.</string>
+    <string name="confirm_health_declaration_text">I give my consent to the RSAF to access my personal particulars for the purpose of travel and health data tracking.</string>
     <string name="cancel">Cancel</string>
     <string name="i_agree">I Agree</string>
 

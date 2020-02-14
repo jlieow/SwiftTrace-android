@@ -104,7 +104,7 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
             return true;
         }
 
-        Toast.makeText(this, getResources().getString(R.string.emply_field_error), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.empty_field_error), Toast.LENGTH_SHORT).show();
 
         return false;
     }
