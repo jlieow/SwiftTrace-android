@@ -130,12 +130,7 @@ public class VerifyOtpActivity extends AppCompatActivity implements View.OnClick
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
-            ProgressBarDialog.dismissProgressDialog();
             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-            if (timer != null) {
-                timer.cancel();
-            }
-            tvTimerText.setText(getResources().getText(R.string.resend_otp));
         }
 
         @Override
@@ -171,7 +166,13 @@ public class VerifyOtpActivity extends AppCompatActivity implements View.OnClick
                     openHomePage();
                 }
                 else {
+                    ProgressBarDialog.dismissProgressDialog();
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
+                    if (timer != null) {
+                        timer.cancel();
+                    }
+                    tvTimerText.setText(getResources().getText(R.string.resend_otp));
                 }
             }
         });
