@@ -1,5 +1,6 @@
 package com.swiftoffice.swifttrace.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,13 +9,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.swiftoffice.swifttrace.R;
 import com.swiftoffice.swifttrace.adapters.TemperatureRecordAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TemperatureRecordActivity extends AppCompatActivity {
 
@@ -23,24 +36,64 @@ public class TemperatureRecordActivity extends AppCompatActivity {
     private Toolbar toolBar;
     private TextView tvToolBarTitle;
 
+    // Access a Cloud Firestore instance from your Activity
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    ArrayList<HashMap<String, String>> TemperatureRecordList = new ArrayList<>();    //Used to store all temperature records
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_per_temp_record);
 
         initViews();
+        getUserTemperatureRecord();
 
         //To set the toolbar title
         tvToolBarTitle.setText(getResources().getString(R.string.temperature_record));
-
-        setAdapter();
     }
 
     //Set Temperature list adapter
     private void setAdapter() {
         //Adapter
-        TemperatureRecordAdapter tempRecordAdapter = new TemperatureRecordAdapter(this);
+        Log.d("success1", TemperatureRecordList.toString());
+        TemperatureRecordAdapter tempRecordAdapter = new TemperatureRecordAdapter(this, TemperatureRecordList);
         tempRecordList.setAdapter(tempRecordAdapter);
+        tempRecordList.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void getUserTemperatureRecord() {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        if (user != null) {
+
+            db.collection("TemperatureReading")
+                    .whereEqualTo("UserID",user.getUid())
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    //Retrieves and stores all temperature records in a dictionary
+                                    Map<String, String> TemperatureRecord = new HashMap<>();
+                                    TemperatureRecord.put("Time", document.getData().get("Time").toString());
+                                    TemperatureRecord.put("Date", document.getData().get("Date").toString());
+                                    TemperatureRecord.put("Temperature", document.getData().get("Temperature").toString());
+                                    TemperatureRecordList.add((HashMap) TemperatureRecord);
+
+                                    Log.d("success", TemperatureRecordList.toString());
+
+                                }
+                            } else {
+                                Log.w("fail", "Error getting documents.", task.getException());
+                            }
+
+                            setAdapter();
+                        }
+                    });
+        }
     }
 
 
