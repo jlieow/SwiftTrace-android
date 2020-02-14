@@ -12,8 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -153,11 +156,25 @@ public class VerifyOtpActivity extends AppCompatActivity implements View.OnClick
         if (verificationId != null && !verificationId.isEmpty()) {
             ProgressBarDialog.showProgressBar(this, "");
             PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
-            MyFirebaseRealTimeDatabase.signInWithPhoneAuthCredential(credential, VerifyOtpActivity.this);
+            signInWithPhoneAuthCredential(credential);
         } else {
             Toast.makeText(this, getResources().getString(R.string.entered_code_is_not_valid), Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()) {
+                    openHomePage();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
 

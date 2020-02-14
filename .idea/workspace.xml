@@ -11,12 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99c71309-7d19-4b37-a4dc-ff1056da6eee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HealthDeclarationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HealthDeclarationActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_insert_temprature.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_insert_temprature.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/VerifyOtpActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/VerifyOtpActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +30,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="46661277ce40" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -47,42 +50,24 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            <state relative-caret-position="-102">
+              <caret line="74" column="33" lean-forward="true" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_otp.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="91" selection-start-line="91" selection-end-line="91" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/VerifyOtpActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+            <state relative-caret-position="160">
+              <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+              <folding>
+                <element signature="e#4515#4558#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,6 +85,12 @@
       <find>emply_field_error</find>
       <find>temerature_reading</find>
       <find>confirm_health</find>
+      <find>timer</find>
+      <find>view</find>
+      <find>signInWithPhoneAuthCredential</find>
+      <find>intent</find>
+      <find>MyFirebaseRealTimeDatabase</find>
+      <find>mAuth</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -119,16 +110,21 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/OTP.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/HomePage.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HealthDeclarationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_insert_temprature.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HealthDeclarationActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/InsertTemperatureActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/TemperatureRecordActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/VerifyOtpActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="706" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -138,29 +134,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SwiftTrace" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="SwiftTrace" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="SwiftTrace" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,7 +150,19 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SwiftTrace" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -317,11 +302,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="706" extended-state="6" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17689823" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.36135373" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
@@ -330,13 +315,13 @@
       <window_info id="Capture Tool" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49946696" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4946695" weight="0.42019543" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4946695" weight="0.42009133" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.49946696" />
-      <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" sideWeight="0.49946696" />
+      <window_info anchor="bottom" id="Android Profiler" order="3" sideWeight="0.49946696" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4989339" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5053305" side_tool="true" weight="0.4211111" />
-      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.4978678" visible="true" weight="0.33713356" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.4978678" />
+      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.4978678" weight="0.336758" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.4978678" weight="0.33904108" />
       <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.49626866" />
       <window_info anchor="bottom" id="Find" order="9" />
       <window_info anchor="right" id="Preview" order="0" />
@@ -425,22 +410,6 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/OTP.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/Login.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/HomePage.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
@@ -448,20 +417,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_otp.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="1309">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HealthDeclarationActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HomeActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/InsertTemperatureActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/MainActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/SplashActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/TemperatureRecordActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="74" column="33" lean-forward="true" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-29/android.jar!/android/os/Handler.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.1.0/7ba5bcd622e3d6d7ab6b9833717c4385e4ba0a51/material-1.1.0-sources.jar!/com/google/android/material/snackbar/Snackbar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/VerifyOtpActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+          <folding>
+            <element signature="e#4515#4558#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
