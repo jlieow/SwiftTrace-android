@@ -1,21 +1,31 @@
 package com.swiftoffice.swifttrace.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.swiftoffice.swifttrace.R;
 
 import java.text.DateFormat;
@@ -23,13 +33,21 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class InsertTemperatureActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Variables
     private Button btnPickDateTime;
+    private Button btnSubmit;
     private Toolbar toolBar;
     private TextView tvToolBarTitle;
+    private EditText eTemperature;
+
+    // Access a Cloud Firestore instance from your Activity
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    String datetime = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +58,6 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
 
         //Set Toolbar Title
         tvToolBarTitle.setText(getResources().getString(R.string.insert_temperature));
-
-
     }
 
 
@@ -49,8 +65,10 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
     private void initViews() {
         //Declarations
         btnPickDateTime = findViewById(R.id.btnPickDateTime);
+        btnSubmit = findViewById(R.id.btnSubmit);
         toolBar = findViewById(R.id.toolBar);
         tvToolBarTitle = findViewById(R.id.tvToolBarTitle);
+        eTemperature = findViewById(R.id.eTemperature);
 
         //SetToolbar
         setSupportActionBar(toolBar);
@@ -67,6 +85,7 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
     //Listeners
     private void listenters() {
         btnPickDateTime.setOnClickListener(this);
+        btnSubmit.setOnClickListener(this);
     }
 
 
@@ -93,12 +112,44 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm aa");
                 btnPickDateTime.setText(dateFormat.format(calendar.getTime()));
 
+                datetime = dateFormat.format(calendar.getTime());
 
                 alertDialog.dismiss();
             }
         });
         alertDialog.setView(dialogView);
         alertDialog.show();
+    }
+
+    private void insertTemperatureData() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        Map<String, String> Temperature = new HashMap<>();
+        Temperature.put("Date", datetime.trim().substring(0, 10).trim());
+        Temperature.put("Time", datetime.trim().substring(10, btnPickDateTime.getText().toString().trim().length()-2).trim());
+        Temperature.put("Temperature", eTemperature.getText().toString().trim());
+        Temperature.put("UserID", user.getUid());
+
+        db.collection("TemperatureReading")
+                .add(Temperature)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("Success", "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("Fail", "Error writing document", e);
+                    }
+                });
+    }
+
+    private void openInsertTempratureActivity() {
+        Intent intent = new Intent(this, TemperatureRecordActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
 
@@ -116,7 +167,27 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnPickDateTime:
+                Log.d("Success", "DocumentSnapshot successfully written!");
+                btnPickDateTime.setError(null);
                 openDateTimePicker();
+                break;
+
+            case R.id.btnSubmit:
+                Log.d("Success", "DocumentSnapshot successfully written!");
+
+                if (datetime == "") {
+                    btnPickDateTime.setError(getResources().getString(R.string.please_select_date_time));
+                    btnPickDateTime.requestFocus();
+
+                } else if (eTemperature.getText().toString().isEmpty()) {
+                    eTemperature.setError(getResources().getString(R.string.please_enter_your_temperature));
+                    eTemperature.requestFocus();
+
+                } else {
+                    insertTemperatureData();
+                    openInsertTempratureActivity();
+                }
+
                 break;
         }
     }

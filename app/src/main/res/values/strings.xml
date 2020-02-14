@@ -36,6 +36,8 @@
     <string name="date_time">Date &amp; Time</string>
     <string name="pick_date_time">Pick Date Time</string>
     <string name="temperature_reading">Temperature Reading</string>
+    <string name="please_select_date_time">Please select a date and time.</string>
+    <string name="please_enter_your_temperature">Please enter your temperature.</string>
 
 
     <!--DATE TIME PICKER-->

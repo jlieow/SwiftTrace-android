@@ -212,9 +212,11 @@ public class VerifyOtpActivity extends AppCompatActivity implements View.OnClick
         boolean flag = true;
         if (etEnterOtp.getText().toString().trim().isEmpty()) {
             etEnterOtp.setError(getResources().getString(R.string.please_enter_your_otp));
+            etEnterOtp.requestFocus();
             flag = false;
         } else if (etEnterOtp.getText().toString().trim().length() < 6) {
             etEnterOtp.setError(getResources().getString(R.string.please_enter_your_otp));
+            etEnterOtp.requestFocus();
             flag = false;
         }
         return flag;

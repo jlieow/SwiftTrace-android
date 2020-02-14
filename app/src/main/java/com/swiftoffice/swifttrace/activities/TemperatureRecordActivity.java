@@ -136,9 +136,6 @@ public class TemperatureRecordActivity extends AppCompatActivity {
         switch (menuItem) {
             case R.id.action_Add:
                 openInsertTempratureActivity();
-                Intent intent = new Intent(this, InsertTemperatureActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
 
             case R.id.action_Tick:
@@ -148,7 +145,9 @@ public class TemperatureRecordActivity extends AppCompatActivity {
     }
 
     private void openInsertTempratureActivity() {
-
+        Intent intent = new Intent(this, InsertTemperatureActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
 

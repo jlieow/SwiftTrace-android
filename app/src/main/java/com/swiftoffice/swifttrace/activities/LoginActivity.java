@@ -122,9 +122,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         boolean flag = true;
         if (etPhoneNumber.getText().toString().trim().isEmpty()) {
             etPhoneNumber.setError(getResources().getString(R.string.please_enter_your_phone_number));
+            etPhoneNumber.requestFocus();
             flag = false;
         } else if (etPhoneNumber.getText().toString().length() < PHONE_NUMBER_LENGHT) {
             etPhoneNumber.setError(getResources().getString(R.string.please_enter_valid_phone_number));
+            etPhoneNumber.requestFocus();
             flag = false;
         }
         return flag;
