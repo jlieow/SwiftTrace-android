@@ -49,6 +49,7 @@
     <string name="personal_information">Personal Information</string>
     <string name="full_name">Full Name</string>
     <string name="nric_fin_passport">NRIC/FIN/Passport</string>
+    <string name="last_4_characters">Last 4 Characters</string>
     <string name="contact_number">Contact Number</string>
     <string name="your_unit_company">Your Unit/Company</string>
     <string name="health_history">health history</string>

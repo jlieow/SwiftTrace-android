@@ -113,7 +113,7 @@
                     android:background="@android:color/transparent"
                     android:ellipsize="end"
                     android:gravity="end"
-                    android:hint="@string/nric_fin_passport"
+                    android:hint="@string/last_4_characters"
                     android:inputType="text"
                     android:padding="@dimen/margin_10"
                     android:singleLine="true"
