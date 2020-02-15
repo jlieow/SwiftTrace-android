@@ -12,8 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -127,12 +130,7 @@ public class VerifyOtpActivity extends AppCompatActivity implements View.OnClick
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
-            ProgressBarDialog.dismissProgressDialog();
             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-            if (timer != null) {
-                timer.cancel();
-            }
-            tvTimerText.setText(getResources().getText(R.string.resend_otp));
         }
 
         @Override
@@ -153,11 +151,31 @@ public class VerifyOtpActivity extends AppCompatActivity implements View.OnClick
         if (verificationId != null && !verificationId.isEmpty()) {
             ProgressBarDialog.showProgressBar(this, "");
             PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
-            MyFirebaseRealTimeDatabase.signInWithPhoneAuthCredential(credential, VerifyOtpActivity.this);
+            signInWithPhoneAuthCredential(credential);
         } else {
             Toast.makeText(this, getResources().getString(R.string.entered_code_is_not_valid), Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()) {
+                    openHomePage();
+                }
+                else {
+                    ProgressBarDialog.dismissProgressDialog();
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
+                    if (timer != null) {
+                        timer.cancel();
+                    }
+                    tvTimerText.setText(getResources().getText(R.string.resend_otp));
+                }
+            }
+        });
     }
 
 
@@ -194,9 +212,11 @@ public class VerifyOtpActivity extends AppCompatActivity implements View.OnClick
         boolean flag = true;
         if (etEnterOtp.getText().toString().trim().isEmpty()) {
             etEnterOtp.setError(getResources().getString(R.string.please_enter_your_otp));
+            etEnterOtp.requestFocus();
             flag = false;
         } else if (etEnterOtp.getText().toString().trim().length() < 6) {
             etEnterOtp.setError(getResources().getString(R.string.please_enter_your_otp));
+            etEnterOtp.requestFocus();
             flag = false;
         }
         return flag;

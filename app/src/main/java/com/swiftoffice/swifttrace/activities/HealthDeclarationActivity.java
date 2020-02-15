@@ -67,9 +67,12 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
 
         //SetToolbar
         setSupportActionBar(toolBar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_arrow);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_arrow);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
 
         listners();

@@ -10,11 +10,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.swiftoffice.swifttrace.R;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class TemperatureRecordAdapter extends RecyclerView.Adapter<TemperatureRecordAdapter.MyViewHolder>{
+
+    ArrayList<HashMap<String,String>> TemperatureRecordList;
+
     Context context;
 
-    public TemperatureRecordAdapter(Context context) {
+    public TemperatureRecordAdapter(Context context, ArrayList<HashMap<String, String>> temptrecordList) {
         this.context= context;
+        TemperatureRecordList = temptrecordList;
     }
 
     @Override
@@ -25,12 +32,15 @@ public class TemperatureRecordAdapter extends RecyclerView.Adapter<TemperatureRe
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        holder.tvTempDate.setText(TemperatureRecordList.get(position).get("Date"));
+        holder.tvTempTime.setText(TemperatureRecordList.get(position).get("Time"));
+        holder.tvTempReadingValue.setText(TemperatureRecordList.get(position).get("Temperature"));
 //        holder.tvTempTime.setText();
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return TemperatureRecordList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

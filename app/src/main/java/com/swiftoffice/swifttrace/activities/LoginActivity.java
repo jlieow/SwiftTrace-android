@@ -48,10 +48,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tvToolBarTitle = findViewById(R.id.tvToolBarTitle);
         etPhoneNumber = findViewById(R.id.etPhoneNumber);
 
-        //ToolBar
+        //SetToolbar
+        setSupportActionBar(toolBar);
+
         if (getSupportActionBar() != null) {
-            setSupportActionBar(toolBar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_arrow);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
 
@@ -120,9 +122,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         boolean flag = true;
         if (etPhoneNumber.getText().toString().trim().isEmpty()) {
             etPhoneNumber.setError(getResources().getString(R.string.please_enter_your_phone_number));
+            etPhoneNumber.requestFocus();
             flag = false;
         } else if (etPhoneNumber.getText().toString().length() < PHONE_NUMBER_LENGHT) {
             etPhoneNumber.setError(getResources().getString(R.string.please_enter_valid_phone_number));
+            etPhoneNumber.requestFocus();
             flag = false;
         }
         return flag;
