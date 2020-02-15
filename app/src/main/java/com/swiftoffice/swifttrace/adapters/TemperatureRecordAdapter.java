@@ -19,6 +19,8 @@ public class TemperatureRecordAdapter extends RecyclerView.Adapter<TemperatureRe
 
     Context context;
 
+    private View.OnClickListener mOnItemClickListener;
+
     public TemperatureRecordAdapter(Context context, ArrayList<HashMap<String, String>> temptrecordList) {
         this.context= context;
         TemperatureRecordList = temptrecordList;
@@ -38,6 +40,11 @@ public class TemperatureRecordAdapter extends RecyclerView.Adapter<TemperatureRe
 //        holder.tvTempTime.setText();
     }
 
+    //TODO: Step 2 of 4: Assign itemClickListener to your local View.OnClickListener variable
+    public void setOnItemClickListener(View.OnClickListener itemClickListener) {
+        mOnItemClickListener = itemClickListener;
+    }
+
     @Override
     public int getItemCount() {
         return TemperatureRecordList.size();
@@ -51,7 +58,12 @@ public class TemperatureRecordAdapter extends RecyclerView.Adapter<TemperatureRe
             tvTempDate= (TextView)itemView.findViewById(R.id.tvTempDate);
             tvTempReadingValue = (TextView)itemView.findViewById(R.id.tvTempReadingValue);
 
-
+            //TODO: Step 3 of 4: setTag() as current view holder along with
+            // setOnClickListener() as your local View.OnClickListener variable.
+            // You can set the same mOnItemClickListener on multiple views if required
+            // and later differentiate those clicks using view's id.
+            itemView.setTag(this);
+            itemView.setOnClickListener(mOnItemClickListener);
         }
     }
 }

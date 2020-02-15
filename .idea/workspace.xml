@@ -19,12 +19,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/InsertTemperatureActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/InsertTemperatureActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/TemperatureRecordActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/TemperatureRecordActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/VerifyOtpActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/VerifyOtpActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_insert_temprature.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_insert_temprature.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/adapters/TemperatureRecordAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/adapters/TemperatureRecordAdapter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,21 +53,14 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/InsertTemperatureActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="151" column="80" selection-start-line="151" selection-start-column="80" selection-end-line="151" selection-end-column="80" />
+            <state relative-caret-position="345">
+              <caret line="127" column="59" selection-start-line="127" selection-start-column="58" selection-end-line="127" selection-end-column="59" />
               <folding>
-                <element signature="e#3121#4039#0" expanded="true" />
-                <element signature="e#4038#4039#0" expanded="true" />
-                <element signature="e#4744#5023#0" expanded="true" />
-                <element signature="e#5022#5023#0" expanded="true" />
-                <element signature="e#5063#5292#0" expanded="true" />
-                <element signature="e#5291#5292#0" expanded="true" />
-                <element signature="e#6247#6305#0" expanded="true" />
-                <element signature="e#6477#6541#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,41 +69,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/TemperatureRecordActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="141" column="35" selection-start-line="141" selection-start-column="35" selection-end-line="141" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="39" column="78" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_insert_temprature.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
+            <state relative-caret-position="270">
+              <caret line="66" column="43" lean-forward="true" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
               <folding>
-                <element signature="e#3893#3911#0" expanded="true" />
-                <element signature="e#3953#3971#0" expanded="true" />
-                <element signature="e#4015#4033#0" expanded="true" />
-                <element signature="e#4317#4338#0" expanded="true" />
+                <element signature="e#3354#4683#0" expanded="true" />
+                <element signature="e#4682#4683#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_per_temp_record.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="39" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="39" />
+            </state>
+          </provider>
           <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/date_time_picker.xml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="android-designer2" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/adapters/TemperatureRecordAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="38" column="94" selection-start-line="38" selection-start-column="83" selection-end-line="38" selection-end-column="94" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -128,20 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
-              <caret line="141" column="8" lean-forward="true" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/VerifyOtpActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="218" column="38" selection-start-line="218" selection-start-column="38" selection-end-line="218" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="168">
+              <caret line="139" column="8" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -150,19 +121,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>code</find>
-      <find>toast</find>
-      <find>by</find>
-      <find>emply_field_error</find>
-      <find>temerature_reading</find>
-      <find>confirm_health</find>
-      <find>timer</find>
       <find>view</find>
-      <find>intent</find>
       <find>MyFirebaseRealTimeDatabase</find>
       <find>mAuth</find>
       <find>signInWithPhoneAuthCredential</find>
-      <find>adapter</find>
       <find>tempRecordAdapter</find>
       <find>recycler</find>
       <find>findViewById</find>
@@ -180,6 +142,15 @@
       <find>error</find>
       <find>open</find>
       <find>openInsertTempratureActivity</find>
+      <find>list</find>
+      <find>listn</find>
+      <find>listner</find>
+      <find>listene</find>
+      <find>Listeners</find>
+      <find>RecyclerView</find>
+      <find>intent</find>
+      <find>MyViewHolder</find>
+      <find>adapter</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,13 +172,13 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HealthDeclarationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HomeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/adapters/TemperatureRecordAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_insert_temprature.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/VerifyOtpActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/TemperatureRecordActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/InsertTemperatureActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/adapters/TemperatureRecordAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/TemperatureRecordActivity.java" />
       </list>
     </option>
   </component>
@@ -224,22 +195,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
+      <pane id="PackagesPane">
         <subPane>
           <expand>
             <path>
-              <item name="SwiftTrace" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SwiftTrace-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="SwiftTrace" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SwiftTrace-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="gradle" type="462c0819:PsiDirectoryNode" />
+              <item name="SwiftTrace" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -265,28 +232,21 @@
               <item name="swifttrace" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="activities" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SwiftTrace" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="SwiftTrace" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
+      <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="SwiftTrace" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="SwiftTrace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SwiftTrace-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="SwiftTrace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SwiftTrace-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="gradle" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -298,7 +258,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RvClickListenerExample" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -435,7 +395,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.29051173" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.28997868" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
@@ -449,8 +409,8 @@
       <window_info anchor="bottom" id="Android Profiler" order="3" sideWeight="0.49946696" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4989339" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5053305" side_tool="true" weight="0.4211111" />
-      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.4978678" weight="0.3321918" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.4978678" weight="0.33904108" />
+      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.4978678" weight="0.3311111" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.4978678" weight="0.33888888" />
       <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.49626866" />
       <window_info anchor="bottom" id="Find" order="9" />
       <window_info anchor="right" id="Preview" order="0" />
@@ -514,12 +474,12 @@
       <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
         </state>
       </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_otp.xml">
       <provider editor-type-id="text-editor">
@@ -536,7 +496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HomeActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/MainActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/SplashActivity.java" />
     <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-29/android.jar!/android/os/Handler.class">
@@ -555,39 +514,36 @@
     <entry file="file://$PROJECT_DIR$/app/build/generated/res/google-services/debug/values/values.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_temp_record_list.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_per_temp_record.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="39" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="39" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_temperature_record.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/adapters/TemperatureRecordAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_temp_record_list.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_temperature_record.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HealthDeclarationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        <state relative-caret-position="952">
+          <caret line="77" column="12" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="12" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="79" selection-start-line="14" selection-start-column="79" selection-end-line="14" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="78" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/date_time_picker.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/VerifyOtpActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
+        <state relative-caret-position="3196">
           <caret line="218" column="38" selection-start-line="218" selection-start-column="38" selection-end-line="218" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -597,20 +553,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_insert_temprature.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="334">
+        <state relative-caret-position="1292">
           <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
-          <folding>
-            <element signature="e#3893#3911#0" expanded="true" />
-            <element signature="e#3953#3971#0" expanded="true" />
-            <element signature="e#4015#4033#0" expanded="true" />
-            <element signature="e#4317#4338#0" expanded="true" />
-          </folding>
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/date_time_picker.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_temperature_record.xml">
@@ -621,40 +567,45 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="39" column="78" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_per_temp_record.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="39" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="141" column="8" lean-forward="true" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="80" />
+        <state relative-caret-position="168">
+          <caret line="139" column="8" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/adapters/TemperatureRecordAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="38" column="94" selection-start-line="38" selection-start-column="83" selection-end-line="38" selection-end-column="94" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/TemperatureRecordActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="141" column="35" selection-start-line="141" selection-start-column="35" selection-end-line="141" selection-end-column="35" />
+        <state relative-caret-position="270">
+          <caret line="66" column="43" lean-forward="true" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
+          <folding>
+            <element signature="e#3354#4683#0" expanded="true" />
+            <element signature="e#4682#4683#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/swiftoffice/swifttrace/activities/InsertTemperatureActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="151" column="80" selection-start-line="151" selection-start-column="80" selection-end-line="151" selection-end-column="80" />
+        <state relative-caret-position="345">
+          <caret line="127" column="59" selection-start-line="127" selection-start-column="58" selection-end-line="127" selection-end-column="59" />
           <folding>
-            <element signature="e#3121#4039#0" expanded="true" />
-            <element signature="e#4038#4039#0" expanded="true" />
-            <element signature="e#4744#5023#0" expanded="true" />
-            <element signature="e#5022#5023#0" expanded="true" />
-            <element signature="e#5063#5292#0" expanded="true" />
-            <element signature="e#5291#5292#0" expanded="true" />
-            <element signature="e#6247#6305#0" expanded="true" />
-            <element signature="e#6477#6541#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

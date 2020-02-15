@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.swiftoffice.swifttrace.R;
 import com.swiftoffice.swifttrace.adapters.TemperatureRecordAdapter;
+import com.swiftoffice.swifttrace.common.AppConstants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,6 +41,26 @@ public class TemperatureRecordActivity extends AppCompatActivity {
     // Access a Cloud Firestore instance from your Activity
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     ArrayList<HashMap<String, String>> TemperatureRecordList = new ArrayList<>();    //Used to store all temperature records
+
+    private View.OnClickListener onItemClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {    //On click listener for recyclerview
+            //TODO: Step 4 of 4: Finally call getTag() on the view.
+            // This viewHolder will have all required values.
+            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
+            int position = viewHolder.getAdapterPosition();
+            HashMap<String, String> TemperatureRecord = TemperatureRecordList.get(position);
+
+            Log.w("success", TemperatureRecord.get("DocID"));
+
+            String Date = TemperatureRecord.get("Date");
+            String Time = TemperatureRecord.get("Time");
+            String Temperature = TemperatureRecord.get("Temperature");
+            String DocID = TemperatureRecord.get("DocID");
+
+            openeditInsertTempratureActivity(Date, Time, Temperature, DocID);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +81,7 @@ public class TemperatureRecordActivity extends AppCompatActivity {
         TemperatureRecordAdapter tempRecordAdapter = new TemperatureRecordAdapter(this, TemperatureRecordList);
         tempRecordList.setAdapter(tempRecordAdapter);
         tempRecordList.setLayoutManager(new LinearLayoutManager(this));
+        tempRecordAdapter.setOnItemClickListener(onItemClickListener);
     }
 
     private void getUserTemperatureRecord() {
@@ -81,9 +104,8 @@ public class TemperatureRecordActivity extends AppCompatActivity {
                                     TemperatureRecord.put("Time", document.getData().get("Time").toString());
                                     TemperatureRecord.put("Date", document.getData().get("Date").toString());
                                     TemperatureRecord.put("Temperature", document.getData().get("Temperature").toString());
+                                    TemperatureRecord.put("DocID", document.getId());   //Get's document ID
                                     TemperatureRecordList.add((HashMap) TemperatureRecord);
-
-                                    Log.d("success", TemperatureRecordList.toString());
 
                                 }
                             } else {
@@ -146,6 +168,16 @@ public class TemperatureRecordActivity extends AppCompatActivity {
 
     private void openInsertTempratureActivity() {
         Intent intent = new Intent(this, InsertTemperatureActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    private void openeditInsertTempratureActivity(String Data, String Time, String Temperature, String DocID) {
+        Intent intent = new Intent(this, InsertTemperatureActivity.class);
+        intent.putExtra("Date", Data);
+        intent.putExtra("Time", Time);
+        intent.putExtra("Temperature", Temperature);
+        intent.putExtra("DocID", DocID);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
