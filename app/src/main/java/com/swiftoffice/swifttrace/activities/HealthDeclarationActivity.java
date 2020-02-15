@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.core.content.ContextCompat;
 
 import com.swiftoffice.swifttrace.R;
 
@@ -75,12 +77,11 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
         }
 
 
-        listners();
+        listeners();
     }
 
-
-    //Listenters
-    private void listners() {
+    //Listeners
+    private void listeners() {
         sHH1.setOnCheckedChangeListener(this);
         sHH2.setOnCheckedChangeListener(this);
         sHH3.setOnCheckedChangeListener(this);
@@ -90,19 +91,19 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
 
     // Check Validations
     private boolean checkValidations() {
-        llFullName.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-        llPassportNo.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-        llContactNumber.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-        llCompany.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+        llFullName.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
+        llPassportNo.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
+        llContactNumber.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
+        llCompany.setBackgroundColor(ContextCompat.getColor(this,R.color.colorWhite));
 
         if (edFullName.getText().toString().trim().isEmpty()) {
-            llFullName.setBackgroundColor(getResources().getColor(R.color.colorError));
+            llFullName.setBackgroundColor(ContextCompat.getColor(this, R.color.colorError));
         } else if (edPassportNo.getText().toString().trim().isEmpty()) {
-            llPassportNo.setBackgroundColor(getResources().getColor(R.color.colorError));
+            llPassportNo.setBackgroundColor(ContextCompat.getColor(this, R.color.colorError));
         } else if (edContactNumber.getText().toString().trim().isEmpty()) {
-            llContactNumber.setBackgroundColor(getResources().getColor(R.color.colorError));
+            llContactNumber.setBackgroundColor(ContextCompat.getColor(this, R.color.colorError));
         } else if (edCompany.getText().toString().trim().isEmpty()) {
-            llCompany.setBackgroundColor(getResources().getColor(R.color.colorError));
+            llCompany.setBackgroundColor(ContextCompat.getColor(this, R.color.colorError));
         } else {
             return true;
         }
@@ -125,11 +126,11 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int menuItem = item.getItemId();
-        switch (menuItem) {
-            case R.id.action_Tick:
-                if (checkValidations()) {
-                    openDialog();
-                }
+
+        if (menuItem == R.id.action_Tick) {
+            if (checkValidations()) {
+                openDialog();
+            }
         }
 
         return super.onOptionsItemSelected(item);
@@ -139,7 +140,7 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
     private void openDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
         builder.setTitle(getString(R.string.alert));
-        builder.setMessage(getString(R.string.declaration_text));
+        builder.setMessage(getString(R.string.tracking_declaration_text));
         String positiveText = getResources().getString(R.string.i_agree);
         builder.setPositiveButton(positiveText,
                 new DialogInterface.OnClickListener() {

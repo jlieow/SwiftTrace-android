@@ -77,7 +77,7 @@ public class VerifyOtpActivity extends AppCompatActivity implements View.OnClick
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
-        listenters();
+        listeners();
     }
 
 
@@ -91,7 +91,7 @@ public class VerifyOtpActivity extends AppCompatActivity implements View.OnClick
     }
 
     //Listeners
-    private void listenters() {
+    private void listeners() {
         btnVerify.setOnClickListener(this);
         tvTimerText.setOnClickListener(this);
     }

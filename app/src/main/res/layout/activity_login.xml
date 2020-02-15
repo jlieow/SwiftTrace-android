@@ -19,7 +19,7 @@
             android:layout_gravity="center"
             android:text="@string/app_name"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -42,7 +42,7 @@
                 android:layout_marginTop="@dimen/margin_50"
                 android:text="@string/login_with_your_phone_number"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/text_size_18"
+                android:textSize="@dimen/text_size_20"
                 android:textStyle="bold">
 
             </TextView>
@@ -60,7 +60,7 @@
                 android:maxLength="8"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/text_size_16" />
+                android:textSize="@dimen/text_size_20" />
 
 
             <com.google.android.material.button.MaterialButton

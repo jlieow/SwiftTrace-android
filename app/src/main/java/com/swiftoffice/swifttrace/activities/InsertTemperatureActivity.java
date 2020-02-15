@@ -5,20 +5,15 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.annotation.SuppressLint;
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,7 +26,6 @@ import com.swiftoffice.swifttrace.R;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +46,7 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insert_temprature);
+        setContentView(R.layout.activity_insert_temperature);
 
         initViews();
 
@@ -79,11 +73,11 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
 
-        listenters();
+        listeners();
     }
 
     //Listeners
-    private void listenters() {
+    private void listeners() {
         btnPickDateTime.setOnClickListener(this);
         btnSubmit.setOnClickListener(this);
     }
@@ -99,17 +93,17 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
             @Override
             public void onClick(View view) {
 
-                DatePicker datePicker = (DatePicker) dialogView.findViewById(R.id.datePicker);
-                TimePicker timePicker = (TimePicker) dialogView.findViewById(R.id.timePicker);
+                DatePicker datePicker = dialogView.findViewById(R.id.datePicker);
+                TimePicker timePicker = dialogView.findViewById(R.id.timePicker);
                 Calendar calendar = new GregorianCalendar(datePicker.getYear(),
                         datePicker.getMonth(),
                         datePicker.getDayOfMonth(),
-                        timePicker.getCurrentHour(),
-                        timePicker.getCurrentMinute());
+                        timePicker.getHour(),
+                        timePicker.getMinute());
 
 
                 //Set date and time on button
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm aa");
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
                 btnPickDateTime.setText(dateFormat.format(calendar.getTime()));
 
                 datetime = dateFormat.format(calendar.getTime());
@@ -146,7 +140,7 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
                 });
     }
 
-    private void openInsertTempratureActivity() {
+    private void openInsertTemperatureActivity() {
         Intent intent = new Intent(this, TemperatureRecordActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -185,7 +179,7 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
 
                 } else {
                     insertTemperatureData();
-                    openInsertTempratureActivity();
+                    openInsertTemperatureActivity();
                 }
 
                 break;

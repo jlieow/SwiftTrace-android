@@ -53,12 +53,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
 
-        listenters();
+        listeners();
     }
 
 
     //Listeners
-    private void listenters() {
+    private void listeners() {
         btnHealthDeclaration.setOnClickListener(this);
         btnTemperatureRecord.setOnClickListener(this);
         btnEnableTracing.setOnClickListener(this);
@@ -84,7 +84,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    //Redirct to health declaration screen
+    //Redirect to health declaration screen
     void openHealthDeclaration() {
         Intent intent = new Intent(this, HealthDeclarationActivity.class);
         startActivity(intent);

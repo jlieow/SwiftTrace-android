@@ -60,6 +60,7 @@
     <dimen name="text_size_20">20sp</dimen>
     <dimen name="text_size_22">22sp</dimen>
     <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_32">32sp</dimen>
 
 
     <dimen name="btn_text_size">18sp</dimen>

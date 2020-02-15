@@ -57,12 +57,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
 
-        listenters();
+        listeners();
     }
 
 
     //Listeners
-    private void listenters() {
+    private void listeners() {
         btnSubmit.setOnClickListener(this);
     }
 
@@ -134,10 +134,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     //Redirect to otp screen
     void openVerifyOtpScreen() {
-        String phonenumber = etPhoneNumber.getText().toString().trim();
+        String phoneNo = etPhoneNumber.getText().toString().trim();
 
         Intent intent = new Intent(this, VerifyOtpActivity.class);
-        intent.putExtra(AppConstants.MOBILE_NUMBER, phonenumber);
+        intent.putExtra(AppConstants.MOBILE_NUMBER, phoneNo);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }

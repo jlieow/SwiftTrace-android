@@ -29,7 +29,7 @@
             android:gravity="bottom"
             android:text="@string/supportive_innovators_accelerating_result"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/text_size_22">
+            android:textSize="@dimen/text_size_32">
 
         </TextView>
 
@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_50"
             android:layout_marginRight="@dimen/margin_50"
+            android:layout_marginBottom="@dimen/margin_10"
             android:text="@string/login"
             android:textAllCaps="true" />
 

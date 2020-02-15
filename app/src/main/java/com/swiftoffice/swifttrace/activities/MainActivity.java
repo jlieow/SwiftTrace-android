@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initViews() {
         btnLogin = findViewById(R.id.btnLogin);
 
-        listenters();
+        listeners();
     }
 
 
     //Listeners
-    private void listenters() {
+    private void listeners() {
         btnLogin.setOnClickListener(this);
     }
 
