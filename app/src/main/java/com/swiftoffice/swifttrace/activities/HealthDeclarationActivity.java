@@ -1,5 +1,6 @@
 package com.swiftoffice.swifttrace.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,6 +10,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,7 +23,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.swiftoffice.swifttrace.R;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.swiftoffice.swifttrace.common.AppConstants.COUNTRY_CODE;
 
@@ -32,7 +50,17 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
     private TextView tvToolBarTitle;
     private LinearLayout llFullName, llPassportNo, llContactNumber, llCompany;
     private EditText edFullName, edPassportNo, edContactNumber, edCompany;
-    private Switch sHH1, sHH2, sHH3, sHH4, sHH5;
+    private Switch sHH1, sHH2, sHH3, sHH4, sHH5, sHH6;
+    private String getsHH1 = "false", getsHH2 = "false", getsHH3 = "false", getsHH4 = "false", getsHH5 = "false", getsHH6 = "false";
+
+    // Access a Cloud Firestore instance from your Activity
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+    //Get current Date
+    DateFormat date = new SimpleDateFormat("dd-MM-yyyy");
+    CharSequence currentDate  = date.format(new Date());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +70,6 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
         initViews();
 
         tvToolBarTitle.setText(getResources().getString(R.string.health_declaration));
-
-
     }
 
     //Initialization
@@ -66,6 +92,7 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
         sHH3 = findViewById(R.id.sHH3);
         sHH4 = findViewById(R.id.sHH4);
         sHH5 = findViewById(R.id.sHH5);
+        sHH6 = findViewById(R.id.sHH6);
 
         //SetToolbar
         setSupportActionBar(toolBar);
@@ -75,7 +102,6 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_arrow);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
-
 
         listeners();
     }
@@ -87,6 +113,7 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
         sHH3.setOnCheckedChangeListener(this);
         sHH4.setOnCheckedChangeListener(this);
         sHH5.setOnCheckedChangeListener(this);
+        sHH6.setOnCheckedChangeListener(this);
     }
 
     // Check Validations
@@ -98,9 +125,9 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
 
         if (edFullName.getText().toString().trim().isEmpty()) {
             llFullName.setBackgroundColor(ContextCompat.getColor(this, R.color.colorError));
-        } else if (edPassportNo.getText().toString().trim().isEmpty()) {
+        } else if (edPassportNo.getText().toString().trim().isEmpty() || edPassportNo.length() != 4) {
             llPassportNo.setBackgroundColor(ContextCompat.getColor(this, R.color.colorError));
-        } else if (edContactNumber.getText().toString().trim().isEmpty()) {
+        } else if (edContactNumber.getText().toString().trim().isEmpty() || edContactNumber.length() != 8) {
             llContactNumber.setBackgroundColor(ContextCompat.getColor(this, R.color.colorError));
         } else if (edCompany.getText().toString().trim().isEmpty()) {
             llCompany.setBackgroundColor(ContextCompat.getColor(this, R.color.colorError));
@@ -150,6 +177,7 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
                         dialog.dismiss();
                         //TODO NEED TO SYNC DATA ON FIRESTORE
                         Toast.makeText(HealthDeclarationActivity.this, "Work in Progress", Toast.LENGTH_LONG).show();
+                        checkHealthDeclaration();   //Checks if document submitted previously. If submitted previously, do not send data.
                     }
                 });
 
@@ -166,6 +194,70 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
         AlertDialog dialog = builder.create();
         // display dialog
         dialog.show();
+    }
+
+    private void checkHealthDeclaration() {
+
+        DocumentReference docRef = db.collection(getResources().getString(R.string.HealthDeclaration)).document(user.getUid() + "+" + currentDate.toString().trim());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("Success", "DocumentSnapshot data: " + document.getData());
+                    } else {
+                        Log.d("Fail", "No such document, call insertHealthDeclaration()");
+                        insertHealthDeclaration();
+                    }
+                } else {
+                    Log.d("Fail", "get failed with ", task.getException());
+                }
+            }
+        });
+    }
+
+    private void insertHealthDeclaration() {
+
+        DateFormat datetime = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        DateFormat date = new SimpleDateFormat("dd-MM-yyyy");
+        CharSequence currentDateandTime  = datetime.format(new Date());
+        CharSequence currentDate  = date.format(new Date());
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        Map<String, String> HealthDeclaration = new HashMap<>();
+        HealthDeclaration.put("CompanyName", edCompany.getText().toString().trim());
+        HealthDeclaration.put("ContactNo", edContactNumber.getText().toString().trim());
+        HealthDeclaration.put("DateTime", currentDateandTime.toString().trim());
+        HealthDeclaration.put("FullName", edFullName.getText().toString().trim());
+        HealthDeclaration.put("HealthQ1", getsHH1);
+        HealthDeclaration.put("HealthQ2", getsHH2);
+        HealthDeclaration.put("HealthQ3", getsHH3);
+        HealthDeclaration.put("HealthQ4", getsHH4);
+        HealthDeclaration.put("HealthQ5", getsHH5);
+        HealthDeclaration.put("HealthQ6", getsHH6);
+        HealthDeclaration.put("PersonID", edPassportNo.getText().toString().trim());
+
+        db.collection(getResources().getString(R.string.HealthDeclaration))
+                .document(user.getUid() + "+" + currentDate.toString().trim())
+                .set(HealthDeclaration)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("Success", "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("Fail", "Error writing document", e);
+                    }
+                });
+
+        Log.w("success", "edit");
+
+        //openTemperatureRecordActivity();
     }
 
 
@@ -188,31 +280,35 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
         if (sHH1.isChecked()) {
-
+            getsHH1 = "true";
         } else {
-
+            getsHH1 = "false";
         }
         if (sHH2.isChecked()) {
-
+            getsHH2 = "true";
         } else {
-
+            getsHH2 = "false";
         }
         if (sHH3.isChecked()) {
-
+            getsHH3 = "true";
         } else {
-
+            getsHH3 = "false";
         }
         if (sHH4.isChecked()) {
-
+            getsHH4 = "true";
         } else {
-
+            getsHH4 = "false";
         }
         if (sHH5.isChecked()) {
-
+            getsHH5 = "true";
         } else {
-
+            getsHH5 = "false";
+        }
+        if (sHH6.isChecked()) {
+            getsHH6 = "true";
+        } else {
+            getsHH6 = "false";
         }
     }
 

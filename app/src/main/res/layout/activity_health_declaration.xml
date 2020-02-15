@@ -369,6 +369,35 @@
                 android:layout_height="@dimen/view_height_0_5"
                 android:background="@color/colorDivider" />
 
+            <LinearLayout
+                android:id="@+id/llHH6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/margin_10"
+                    android:text="@string/hh6"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16" />
+
+                <Switch
+                    android:id="@+id/sHH6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_margin="@dimen/margin_10" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_height_0_5"
+                android:background="@color/colorDivider" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

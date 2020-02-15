@@ -121,10 +121,10 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
 
 
                 //Set date and time on button
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 btnPickDateTime.setText(dateFormat.format(calendar.getTime()));
 
-                temperatureRecord = new TemperatureRecord(dateFormat.format(calendar.getTime()).toString().trim().substring(0, 10).trim(), dateFormat.format(calendar.getTime()).toString().trim().substring(10).trim(), null, null);
+                temperatureRecord = new TemperatureRecord(dateFormat.format(calendar.getTime()).trim().substring(0, 10).trim(), dateFormat.format(calendar.getTime()).trim().substring(10).trim(), null, null);
 
                 alertDialog.dismiss();
             }
@@ -144,7 +144,7 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
         Temperature.put("UserID", user.getUid());
 
         if (temperatureRecord.getDocID() != null){
-            db.collection("TemperatureReading")
+            db.collection(getResources().getString(R.string.TemperatureReading))
                     .document(temperatureRecord.getDocID())
                     .set(Temperature)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -162,7 +162,7 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
 
             Log.w("success", "edit");
         } else {
-            db.collection("TemperatureReading")
+            db.collection(getResources().getString(R.string.TemperatureReading))
                     .add(Temperature)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
