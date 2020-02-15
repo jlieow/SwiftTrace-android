@@ -65,8 +65,6 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
         Intent intent = getIntent();
 
         temperatureRecord = intent.getParcelableExtra("TemperatureRecord");
-
-        Toast.makeText(this, temperatureRecord.getDocID(), Toast.LENGTH_SHORT).show();
     }
 
     //Initializations
