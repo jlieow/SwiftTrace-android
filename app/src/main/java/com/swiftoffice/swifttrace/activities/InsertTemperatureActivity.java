@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,7 +24,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.swiftoffice.swifttrace.R;
+import com.swiftoffice.swifttrace.classes.TemperatureRecord;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -41,12 +45,15 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
 
     // Access a Cloud Firestore instance from your Activity
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String datetime = "";
+    TemperatureRecord temperatureRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_temperature);
+
+        getData();
+
 
         initViews();
 
@@ -54,6 +61,13 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
         tvToolBarTitle.setText(getResources().getString(R.string.insert_temperature));
     }
 
+    private void getData() {    //Get data passed from previous activity
+        Intent intent = getIntent();
+
+        temperatureRecord = intent.getParcelableExtra("TemperatureRecord");
+
+        Toast.makeText(this, temperatureRecord.getDocID(), Toast.LENGTH_SHORT).show();
+    }
 
     //Initializations
     private void initViews() {
@@ -71,6 +85,12 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_arrow);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
+
+        if(temperatureRecord.getDocID() != null) { //If directed from recyclerview takes in recyclerview values
+            btnPickDateTime.setText(temperatureRecord.getDate() + " " + temperatureRecord.getTime());
+            eTemperature.setText(temperatureRecord.getTemperature());
+            eTemperature.clearFocus();
         }
 
         listeners();
@@ -106,7 +126,7 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
                 btnPickDateTime.setText(dateFormat.format(calendar.getTime()));
 
-                datetime = dateFormat.format(calendar.getTime());
+                temperatureRecord = new TemperatureRecord(dateFormat.format(calendar.getTime()).toString().trim().substring(0, 10).trim(), dateFormat.format(calendar.getTime()).toString().trim().substring(10).trim(), null, null);
 
                 alertDialog.dismiss();
             }
@@ -115,32 +135,57 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
         alertDialog.show();
     }
 
-    private void insertTemperatureData() {
+    private void editinsertTemperatureData() {
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         Map<String, String> Temperature = new HashMap<>();
-        Temperature.put("Date", datetime.trim().substring(0, 10).trim());
-        Temperature.put("Time", datetime.trim().substring(10, btnPickDateTime.getText().toString().trim().length()-2).trim());
+        Temperature.put("Date", temperatureRecord.getDate());
+        Temperature.put("Time", temperatureRecord.getTime());
         Temperature.put("Temperature", eTemperature.getText().toString().trim());
         Temperature.put("UserID", user.getUid());
 
-        db.collection("TemperatureReading")
-                .add(Temperature)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("Success", "DocumentSnapshot successfully written!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Fail", "Error writing document", e);
-                    }
-                });
+        if (temperatureRecord.getDocID() != null){
+            db.collection("TemperatureReading")
+                    .document(temperatureRecord.getDocID())
+                    .set(Temperature)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("Success", "DocumentSnapshot successfully written!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("Fail", "Error writing document", e);
+                        }
+                    });
+
+            Log.w("success", "edit");
+        } else {
+            db.collection("TemperatureReading")
+                    .add(Temperature)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d("Success", "DocumentSnapshot successfully written!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("Fail", "Error writing document", e);
+                        }
+                    });
+
+            Log.w("success", "insert");
+        }
+
+        openTemperatureRecordActivity();
     }
 
-    private void openInsertTemperatureActivity() {
+    private void openTemperatureRecordActivity() {
         Intent intent = new Intent(this, TemperatureRecordActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -155,7 +200,6 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
         return true;
     }
 
-
     //On Click
     @Override
     public void onClick(View v) {
@@ -169,7 +213,7 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
             case R.id.btnSubmit:
                 Log.d("Success", "DocumentSnapshot successfully written!");
 
-                if (datetime == "") {
+                if (temperatureRecord.getDate() == null || temperatureRecord.getTime() == null) {
                     btnPickDateTime.setError(getResources().getString(R.string.please_select_date_time));
                     btnPickDateTime.requestFocus();
 
@@ -178,8 +222,7 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
                     eTemperature.requestFocus();
 
                 } else {
-                    insertTemperatureData();
-                    openInsertTemperatureActivity();
+                    editinsertTemperatureData();
                 }
 
                 break;

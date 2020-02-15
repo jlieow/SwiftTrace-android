@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,7 +26,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.swiftoffice.swifttrace.R;
 import com.swiftoffice.swifttrace.adapters.TemperatureRecordAdapter;
-import com.swiftoffice.swifttrace.common.AppConstants;
+import com.swiftoffice.swifttrace.classes.TemperatureRecord;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,14 +52,14 @@ public class TemperatureRecordActivity extends AppCompatActivity {
             int position = viewHolder.getAdapterPosition();
             HashMap<String, String> TemperatureRecord = TemperatureRecordList.get(position);
 
-            Log.w("success", TemperatureRecord.get("DocID"));
-
             String Date = TemperatureRecord.get("Date");
             String Time = TemperatureRecord.get("Time");
             String Temperature = TemperatureRecord.get("Temperature");
             String DocID = TemperatureRecord.get("DocID");
 
-            openeditInsertTempratureActivity(Date, Time, Temperature, DocID);
+            com.swiftoffice.swifttrace.classes.TemperatureRecord temperatureRecord = new TemperatureRecord(TemperatureRecord.get("Date"), TemperatureRecord.get("Time"), TemperatureRecord.get("Temperature"), TemperatureRecord.get("DocID"));
+
+            openInsertTemperatureActivity(temperatureRecord);
         }
     };
 
@@ -77,7 +78,6 @@ public class TemperatureRecordActivity extends AppCompatActivity {
     //Set Temperature list adapter
     private void setAdapter() {
         //Adapter
-        Log.d("success1", TemperatureRecordList.toString());
         TemperatureRecordAdapter tempRecordAdapter = new TemperatureRecordAdapter(this, TemperatureRecordList);
         tempRecordList.setAdapter(tempRecordAdapter);
         tempRecordList.setLayoutManager(new LinearLayoutManager(this));
@@ -101,8 +101,8 @@ public class TemperatureRecordActivity extends AppCompatActivity {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     //Retrieves and stores all temperature records in a dictionary
                                     Map<String, String> TemperatureRecord = new HashMap<>();
-                                    TemperatureRecord.put("Time", document.getData().get("Time").toString());
                                     TemperatureRecord.put("Date", document.getData().get("Date").toString());
+                                    TemperatureRecord.put("Time", document.getData().get("Time").toString());
                                     TemperatureRecord.put("Temperature", document.getData().get("Temperature").toString());
                                     TemperatureRecord.put("DocID", document.getId());   //Get's document ID
                                     TemperatureRecordList.add((HashMap) TemperatureRecord);
@@ -140,7 +140,6 @@ public class TemperatureRecordActivity extends AppCompatActivity {
 
     }
 
-
     @SuppressLint("ResourceType")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -157,7 +156,7 @@ public class TemperatureRecordActivity extends AppCompatActivity {
 
         switch (menuItem) {
             case R.id.action_Add:
-                openInsertTemperatureActivity();
+                openInsertTemperatureActivity(new TemperatureRecord(null, null, null, null));
                 break;
 
             case R.id.action_Tick:
@@ -166,18 +165,9 @@ public class TemperatureRecordActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void openInsertTemperatureActivity() {
+    private void openInsertTemperatureActivity(TemperatureRecord temperatureRecord) {
         Intent intent = new Intent(this, InsertTemperatureActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    }
-
-    private void openeditInsertTempratureActivity(String Data, String Time, String Temperature, String DocID) {
-        Intent intent = new Intent(this, InsertTemperatureActivity.class);
-        intent.putExtra("Date", Data);
-        intent.putExtra("Time", Time);
-        intent.putExtra("Temperature", Temperature);
-        intent.putExtra("DocID", DocID);
+        intent.putExtra("TemperatureRecord", (Parcelable) temperatureRecord);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
