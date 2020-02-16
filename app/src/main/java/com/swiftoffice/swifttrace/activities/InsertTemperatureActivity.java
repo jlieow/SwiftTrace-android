@@ -25,6 +25,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.swiftoffice.swifttrace.R;
 import com.swiftoffice.swifttrace.classes.TemperatureRecord;
+import com.swiftoffice.swifttrace.common.ProgressBarDialog;
 
 import java.io.Serializable;
 import java.text.DateFormat;
@@ -151,12 +152,14 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
                         @Override
                         public void onSuccess(Void aVoid) {
                             Log.d("Success", "DocumentSnapshot successfully written!");
+                            ProgressBarDialog.dismissProgressDialog();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Log.w("Fail", "Error writing document", e);
+                            ProgressBarDialog.dismissProgressDialog();
                         }
                     });
 
@@ -168,12 +171,14 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Log.d("Success", "DocumentSnapshot successfully written!");
+                            ProgressBarDialog.dismissProgressDialog();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Log.w("Fail", "Error writing document", e);
+                            ProgressBarDialog.dismissProgressDialog();
                         }
                     });
 
@@ -203,13 +208,12 @@ public class InsertTemperatureActivity extends AppCompatActivity implements View
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnPickDateTime:
-                Log.d("Success", "DocumentSnapshot successfully written!");
                 btnPickDateTime.setError(null);
                 openDateTimePicker();
                 break;
 
             case R.id.btnSubmit:
-                Log.d("Success", "DocumentSnapshot successfully written!");
+                ProgressBarDialog.showProgressBar(this, "");
 
                 if (temperatureRecord.getDate() == null || temperatureRecord.getTime() == null) {
                     btnPickDateTime.setError(getResources().getString(R.string.please_select_date_time));

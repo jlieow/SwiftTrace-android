@@ -34,6 +34,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.swiftoffice.swifttrace.R;
 import com.swiftoffice.swifttrace.classes.HealthDeclaration;
+import com.swiftoffice.swifttrace.common.ProgressBarDialog;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -170,6 +171,7 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
 
         if (menuItem == R.id.action_Tick) {
             if (checkValidations()) {
+                ProgressBarDialog.showProgressBar(this, "");
                 openDialog();
             }
         }
@@ -190,13 +192,15 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
                         // dismiss dialog
                         dialog.dismiss();
                         //TODO NEED TO SYNC DATA ON FIRESTORE
-                        Toast.makeText(HealthDeclarationActivity.this, "Work in Progress", Toast.LENGTH_LONG).show();
+                        Toast.makeText(HealthDeclarationActivity.this, "Health Declaration Submitted.", Toast.LENGTH_LONG).show();
 
                         insertHealthDeclaration();
                         checkHealthDeclaration();   //Checks if user has submitted a health declaration for the day.
                         if (checkHealthDeclarationresult == false) {
                             insertHealthDeclaration();  //Submits health declaration if false as user has not submitted a health declaration for the day.
                         }
+
+
                     }
                 });
 
@@ -216,6 +220,8 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
     }
 
     private void checkHealthDeclarationDisplay() {  //Checks if user has submitted a health declaration and if true, disables all inputs and displays submitted information
+
+        ProgressBarDialog.showProgressBar(this, "");
 
         DocumentReference docRef = db.collection(getResources().getString(R.string.HealthDeclaration)).document(user.getUid() + "+" + currentDate.toString().trim());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -268,13 +274,13 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
                         sHH6.setEnabled(false);
 
                         tick.setVisible(false);
-
                     } else {
                         Log.d("Fail", "No such document, call insertHealthDeclaration()");
                     }
                 } else {
                     Log.d("Fail", "get failed with ", task.getException());
                 }
+                ProgressBarDialog.dismissProgressDialog();
             }
         });
     }
@@ -334,18 +340,26 @@ public class HealthDeclarationActivity extends AppCompatActivity implements Comp
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d("Success", "DocumentSnapshot successfully written!");
+                        ProgressBarDialog.dismissProgressDialog();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w("Fail", "Error writing document", e);
+                        ProgressBarDialog.dismissProgressDialog();
                     }
                 });
 
         Log.w("success", "edit");
 
-        //openTemperatureRecordActivity();
+        openHomePage();
+    }
+
+    //Redirect To Home Page
+    void openHomePage() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 
 
