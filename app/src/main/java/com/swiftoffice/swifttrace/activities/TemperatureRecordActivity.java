@@ -27,6 +27,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.swiftoffice.swifttrace.R;
 import com.swiftoffice.swifttrace.adapters.TemperatureRecordAdapter;
 import com.swiftoffice.swifttrace.classes.TemperatureRecord;
+import com.swiftoffice.swifttrace.common.ProgressBarDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -113,6 +114,7 @@ public class TemperatureRecordActivity extends AppCompatActivity {
                             }
 
                             setAdapter();
+                            ProgressBarDialog.dismissProgressDialog();
                         }
                     });
         }
@@ -124,6 +126,8 @@ public class TemperatureRecordActivity extends AppCompatActivity {
         tempRecordList = findViewById(R.id.tempRecordList);
         toolBar = findViewById(R.id.toolBar);
         tvToolBarTitle = findViewById(R.id.tvToolBarTitle);
+
+        ProgressBarDialog.showProgressBar(this, "");
 
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
