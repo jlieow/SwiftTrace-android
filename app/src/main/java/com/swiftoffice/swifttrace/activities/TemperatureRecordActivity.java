@@ -3,11 +3,13 @@ package com.swiftoffice.swifttrace.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -29,6 +31,8 @@ import com.swiftoffice.swifttrace.adapters.TemperatureRecordAdapter;
 import com.swiftoffice.swifttrace.classes.TemperatureRecord;
 import com.swiftoffice.swifttrace.common.ProgressBarDialog;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -53,11 +57,6 @@ public class TemperatureRecordActivity extends AppCompatActivity {
             int position = viewHolder.getAdapterPosition();
             HashMap<String, String> TemperatureRecord = TemperatureRecordList.get(position);
 
-            String Date = TemperatureRecord.get("Date");
-            String Time = TemperatureRecord.get("Time");
-            String Temperature = TemperatureRecord.get("Temperature");
-            String DocID = TemperatureRecord.get("DocID");
-
             com.swiftoffice.swifttrace.classes.TemperatureRecord temperatureRecord = new TemperatureRecord(TemperatureRecord.get("Date"), TemperatureRecord.get("Time"), TemperatureRecord.get("Temperature"), TemperatureRecord.get("DocID"));
 
             openInsertTemperatureActivity(temperatureRecord);
@@ -74,6 +73,7 @@ public class TemperatureRecordActivity extends AppCompatActivity {
 
         //To set the toolbar title
         tvToolBarTitle.setText(getResources().getString(R.string.temperature_record));
+
     }
 
     //Set Temperature list adapter
@@ -109,6 +109,45 @@ public class TemperatureRecordActivity extends AppCompatActivity {
                                     TemperatureRecordList.add((HashMap) TemperatureRecord);
 
                                 }
+
+                            } else {
+                                Log.w("fail", "Error getting documents.", task.getException());
+                            }
+
+                            setAdapter();
+                            ProgressBarDialog.dismissProgressDialog();
+                        }
+                    });
+        }
+    }
+
+
+    private void generateCSV() {    //Generates CSV after task is successful
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        if (user != null) {
+
+            db.collection("TemperatureReading")
+                    .whereEqualTo("UserID",user.getUid())
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    //Retrieves and stores all temperature records in a dictionary
+                                    Map<String, String> TemperatureRecord = new HashMap<>();
+                                    TemperatureRecord.put("Date", document.getData().get("Date").toString());
+                                    TemperatureRecord.put("Time", document.getData().get("Time").toString());
+                                    TemperatureRecord.put("Temperature", document.getData().get("Temperature").toString());
+                                    TemperatureRecord.put("DocID", document.getId());   //Get's document ID
+                                    TemperatureRecordList.add((HashMap) TemperatureRecord);
+
+                                }
+
+                                exportcsv();    //Outputs CSV
                             } else {
                                 Log.w("fail", "Error getting documents.", task.getException());
                             }
@@ -174,6 +213,39 @@ public class TemperatureRecordActivity extends AppCompatActivity {
         intent.putExtra("TemperatureRecord", (Parcelable) temperatureRecord);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+
+    private void exportcsv() {
+
+        //generate data
+        StringBuilder data = new StringBuilder();
+        data.append("Date,Time,Temperature");
+        for(int i = 0; i<TemperatureRecordList.size(); i++){
+            data.append("\n"+String.valueOf(i)+","+String.valueOf(i*i));
+            data.append("\n"+TemperatureRecordList.get(i).get("Date")+","+TemperatureRecordList.get(i).get("Time")+","+TemperatureRecordList.get(i).get("Temperature"));
+        }
+
+        try{
+            //saving the file into device
+            FileOutputStream out = openFileOutput("data.csv", getApplicationContext().MODE_PRIVATE);
+            out.write((data.toString()).getBytes());
+            out.close();
+
+            //exporting
+            File filelocation = new File(getFilesDir(), "data.csv");
+            Uri path = FileProvider.getUriForFile(getApplicationContext(), "com.example.exportcsv.fileprovider", filelocation);
+            Intent fileIntent = new Intent(Intent.ACTION_SEND);
+            fileIntent.setType("text/csv");
+            fileIntent.putExtra(Intent.EXTRA_SUBJECT, "Data");
+            fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            fileIntent.putExtra(Intent.EXTRA_STREAM, path);
+            startActivity(Intent.createChooser(fileIntent, "Send mail"));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 
