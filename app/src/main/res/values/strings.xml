@@ -5,6 +5,14 @@
     <string name="HealthDeclaration">HealthDeclaration</string>
     <string name="TemperatureReading">TemperatureReading</string>
 
+    <!--FIREBASE CLOUD MESSAGING-->
+    <string name="msg_token_fmt">Your Firebase Cloud Messaging ID is %1$s</string>
+    <string name="firebase_messaging_id">com.swiftoffice.swifttrace.FirebaseMessagingID"</string>
+
+    <!--INTERNAL CACHE MEMORY-->
+    <string name="successfully_written_to_cache">Successfully written to cache: %1$s</string>
+    <string name="failed_to_write_to_cache">Failed to write to cache</string>
+
     <!--MAIN SCREEN-->
     <string name="supportive_innovators_accelerating_result">Supporting\nInnovators &amp; \nAccelerating\nResults.</string>
     <string name="login">Login</string>
